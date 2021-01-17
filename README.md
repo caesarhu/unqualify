@@ -22,8 +22,7 @@ Map
 ;; {:id "id"}
 (unqualify {:employee/id {:bank/bank-id "bank-id"
                           :employee/changes 123}} true)
-;; {:id {:bank-id "bank-id"
-                 :changes 123}}
+;; {:id {:bank-id "bank-id" :changes 123}}
 ```
 
 Invoke a library API function from the command-line:
