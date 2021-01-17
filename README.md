@@ -1,10 +1,30 @@
 # unqualify
 
-FIXME: my new library.
+A protocol to unqualify clojure object, suport keyword symbol and map.
 
 ## Usage
 
-FIXME: write usage documentation!
+```clojure
+(unqualify obj recursive?) ;; default recursive? false
+or
+(unqualify obj)
+
+Keyword
+(unqualify :bank/id)
+;; :id
+
+Symbol
+(unqualify 'bank/id)
+;; id
+
+Map
+(unqualify {:employee/id "id"})
+;; {:id "id"}
+(unqualify {:employee/id {:bank/bank-id "bank-id"
+                          :employee/changes 123}} true)
+;; {:id {:bank-id "bank-id"
+                 :changes 123}}
+```
 
 Invoke a library API function from the command-line:
 
