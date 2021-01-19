@@ -26,6 +26,18 @@
       (-> obj name symbol)
       obj))
 
+  clojure.lang.PersistentHashMap
+  (unqualify
+    ([obj recursive?]
+     (if recursive?
+       (transform-keys unqualify obj)
+       (let [all-keys (->> (keys obj)
+                           (map unqualify))
+             all-vals (vals obj)]
+         (zipmap all-keys all-vals))))
+    ([obj]
+     (unqualify obj false)))
+
   clojure.lang.PersistentArrayMap
   (unqualify
     ([obj recursive?]
